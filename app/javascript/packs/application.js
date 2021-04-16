@@ -16,3 +16,10 @@ import "bootstrap"
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+import { initSearchBar } from '../components/init_search_bar'
+
+document.addEventListener('turbolinks:load', () => {
+  // Call your JS functions here
+  initSearchBar();
+});
