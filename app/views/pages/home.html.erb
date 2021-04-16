@@ -1,3 +1,5 @@
 <h1 class="text-center mt-5">Let's dream a little...</h1>
 <h3 class="text-center mt-3">Where in the world would you like to live?</h3>
-<input id="search-bar" class="mx-auto mt-5 w-50" type="text">
+<%= form_tag(root_path, method: :get) do %>        
+  <%= text_field_tag(:location, "", class: "mx-auto mt-5 w-50", id: "search-bar") %>        
+<% end %>
