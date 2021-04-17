@@ -4,7 +4,7 @@
   <%= text_field_tag(:location, "", class: "mx-auto mt-5 mb-5 w-50", id: "search-bar") %>
 <% end %>
 
-<% places = Place.api_search(params[:location]) if params[:location]%>
+<% places = api_search(params[:location]) if params[:location]%>
 
 <% if places.any? %>
   <ul class="list-group mx-auto w-50">
