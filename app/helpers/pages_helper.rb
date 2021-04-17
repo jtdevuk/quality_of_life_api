@@ -18,10 +18,10 @@ module PagesHelper
           cost_of_living = categories[1]["score_out_of_10"]
           safety = categories[7]["score_out_of_10"]
           description = urban_area["_embedded"]["ua:scores"]["summary"]
+          places << {name: name, description: description, housing: housing, cost_of_living: cost_of_living, safety: safety}      
         else
-          name = city_item["full_name"]          
+          # name = city_item["full_name"]          
         end
-        places << {name: name, description: description, housing: housing, cost_of_living: cost_of_living, safety: safety}      
       end
     end
     places

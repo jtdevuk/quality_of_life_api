@@ -1,19 +1,21 @@
-<h1 class="text-center mt-5">Let's dream a little...</h1>
-<h3 class="text-center mt-3">Where in the world would you like to live?</h3>
-<%= form_tag(root_path, method: :get) do %>        
-  <%= text_field_tag(:location, "", class: "mx-auto mt-5 mb-5 w-50", id: "search-bar") %>
-<% end %>
+<div id="homepage-map">
+  <h1 class="text-center mt-5">Let's dream a little...</h1>
+  <h3 class="text-center mt-3">Where in the world would you like to live?</h3>
+  <%= form_tag(root_path, method: :get) do %>        
+    <%= text_field_tag(:location, "", class: "mx-auto mt-5 mb-5 w-50", id: "search-bar") %>
+  <% end %>
+  <% places = api_search(params[:location]) if params[:location]%>
 
-<% places = api_search(params[:location]) if params[:location]%>
-
-<% if places.any? %>
-  <ul class="list-group mx-auto w-50">
-    <% places.each do |place| %>
-    <li class="list-group-item">
-      <p class="card-title"><%= place[:name] %></p>      
-    </li>
-    <% end %>
-  </ul>
-<% else %>
-  <h4 class ="text-center">No results found!</h4>
-<% end %>
+  <% if places.any? %>
+    <ul class="list-group mx-auto w-50">
+      <% places.each do |place| %>
+      <li class="list-group-item">
+        <p class="card-title"><%= place[:name] %></p>      
+      </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <h4 class ="text-center">No results found!*</h4>
+    <p class="text-center">*only locations with quality of life data available are shown</p>
+  <% end %>
+</div>
