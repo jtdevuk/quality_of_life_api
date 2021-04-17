@@ -7,17 +7,12 @@
   <% if params[:location] %>
     <% places = Place.api_search(params[:location]) %>    
     <div class="row">
-      <% places.first(6).each do |place| %>
-        <div class="col-sm">
-          <div class="card mb-5" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title"><%= place["matching_full_name"] %></h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">More Info</a>
-            </div>            
-          </div>
-        </div>     
+    <ul class="list-group mx-auto">
+      <% places.each do |place| %>
+      <li class="list-group-item">
+        <p class="card-title"><%= place[:name] %></p>      
+      </li>
       <% end %>
+      </ul>
     </div>    
-  <% end %>       
+  <% end %>
