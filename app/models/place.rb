@@ -27,10 +27,3 @@ class Place < ApplicationRecord
     places
   end
 end
-
-
-# Place.create(name: name,
-#                      description: description,
-#                      housing: housing,
-#                      cost_of_living: cost_of_living,
-#                      safety: safety)

@@ -3,16 +3,17 @@
 <%= form_tag(root_path, method: :get) do %>        
   <%= text_field_tag(:location, "", class: "mx-auto mt-5 mb-5 w-50", id: "search-bar") %>
 <% end %>
-  
-  <% if params[:location] %>
-    <% places = Place.api_search(params[:location]) %>    
-    <div class="row">
-    <ul class="list-group mx-auto">
-      <% places.each do |place| %>
-      <li class="list-group-item">
-        <p class="card-title"><%= place[:name] %></p>      
-      </li>
-      <% end %>
-      </ul>
-    </div>    
-  <% end %>
+
+<% places = Place.api_search(params[:location]) if params[:location]%>
+
+<% if places.any? %>
+  <ul class="list-group mx-auto w-50">
+    <% places.each do |place| %>
+    <li class="list-group-item">
+      <p class="card-title"><%= place[:name] %></p>      
+    </li>
+    <% end %>
+  </ul>
+<% else %>
+  <h4 class ="text-center">No results found!</h4>
+<% end %>
