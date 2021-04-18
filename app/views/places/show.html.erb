@@ -34,5 +34,7 @@
       <td style="--size: calc( <%= @place.safety %> / 10 )"> <%= @place.safety.truncate(1) %> </td>
     </tr>
   </tbody>
-
 </table>
+<div class="text-center mt-5">
+  <button type="button" class="btn btn-success">Add <%= @place.name %> to my shortlist</button>
+</div>
