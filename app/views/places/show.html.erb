@@ -36,7 +36,7 @@
   </tbody>
 </table>
 <div class="text-center mt-5">
-  <%= link_to shortlist_path do %>
-    <button type="button" class="btn btn-success">Add <%= @place.name %> to my shortlist</button>
-  <% end %>
+  <%= link_to "Add #{@place.name} to my shortlist", place_path(@place), method: :post, class: "btn btn-success" %>    
 </div>
+
+<%# current_user.places << @place %>
