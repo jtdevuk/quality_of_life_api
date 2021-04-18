@@ -3,8 +3,10 @@
 
 <%= render "shared/graph", place: @place %>
 
-<div class="text-center mt-5">
-  <%= link_to "Add #{@place.name} to my shortlist", place_path(@place), method: :post, class: "btn btn-success" %>    
+<div class="text-center mt-5">  
+  <% if current_user.places.include?(@place) %>
+    <p>You'll find <%= @place.name %> already in your shortlist!</p>
+  <% else %>
+    <%= link_to "Add #{@place.name} to my shortlist", place_path(@place), method: :post, class: "btn btn-success" %>
+  <% end %>  
 </div>
-
-<%# current_user.places << @place %>
