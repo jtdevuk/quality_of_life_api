@@ -97,6 +97,7 @@ GEM
     nokogiri (1.11.3)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
+    open-uri (0.1.0)
     orm_adapter (0.5.0)
     puma (4.3.7)
       nio4r (~> 2.0)
@@ -195,6 +196,7 @@ DEPENDENCIES
   dotenv
   jbuilder (~> 2.7)
   listen (~> 3.2)
+  open-uri
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.5)
   sass-rails (>= 6)

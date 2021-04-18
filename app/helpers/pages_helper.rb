@@ -1,5 +1,4 @@
 module PagesHelper
-  require 'open-uri'
   def api_search(place)
     places = []
     url = "https://api.teleport.org/api/cities/?search=#{place}&embed=city%3Asearch-results%2Fcity%3Aitem%2Fcity%3Aurban_area%2Fua%3Ascores"
