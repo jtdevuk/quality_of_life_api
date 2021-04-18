@@ -14,7 +14,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: white;
 
   input {
     border-radius: 15px;
@@ -37,5 +36,6 @@
 
   h1, h3, h4 {
     text-shadow: 1px 1px orange;
+    color: white;
   }
 }
