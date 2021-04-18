@@ -1,40 +1,8 @@
 <h1 class="text-center m-3"><%= @place.name %></h1>
 <p class="m-5"><%= @place.summary.html_safe %></p>
 
-<table class="charts-css bar show-labels mt-5">
+<%= render "shared/graph", place: @place %>
 
-  <caption> Quality of Life Ratings </caption>
-
-  <thead>
-    <tr>
-      <th scope="col"> Country </th>
-      <th scope="col"> Gold </th>
-      <th scope="col"> Silver </th>
-      <th scope="col"> Bronze </th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-      <th scope="row"> Housing </th>
-      <td style="--size: calc( <%= @place.housing %> / 10 )"> <%= @place.housing.truncate(1) %> </td>
-      <td style="--size: calc( <%= @place.housing %> / 10 )"> <%= @place.housing.truncate(1) %> </td>
-      <td style="--size: calc( <%= @place.housing %> / 10 )"> <%= @place.housing.truncate(1) %> </td>
-    </tr>
-    <tr>
-      <th scope="row"> Cost of Living </th>
-      <td style="--size: calc( <%= @place.cost_of_living %> / 10 )"> <%= @place.cost_of_living.truncate(1) %> </td>      
-      <td style="--size: calc( <%= @place.cost_of_living %> / 10 )"> <%= @place.cost_of_living.truncate(1) %> </td>      
-      <td style="--size: calc( <%= @place.cost_of_living %> / 10 )"> <%= @place.cost_of_living.truncate(1) %> </td>      
-    </tr>
-    <tr>
-      <th scope="row"> Safety </th>
-      <td style="--size: calc( <%= @place.safety %> / 10 )"> <%= @place.safety.truncate(1) %> </td>
-      <td style="--size: calc( <%= @place.safety %> / 10 )"> <%= @place.safety.truncate(1) %> </td>
-      <td style="--size: calc( <%= @place.safety %> / 10 )"> <%= @place.safety.truncate(1) %> </td>
-    </tr>
-  </tbody>
-</table>
 <div class="text-center mt-5">
   <%= link_to "Add #{@place.name} to my shortlist", place_path(@place), method: :post, class: "btn btn-success" %>    
 </div>
