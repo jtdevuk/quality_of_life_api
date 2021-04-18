@@ -11,7 +11,7 @@ module PagesHelper
       results["_embedded"]["city:search-results"].first(3).each do |result|
         city_item = result["_embedded"]["city:item"]
         # The API response only includes relevant quality of life info when city_item["_embedded"] is present, other results are ignored
-        places << Place.create(build_place_from(city_item)) if city_item["_embedded"]        
+        places << Place.create(build_place_from(city_item)) if city_item["_embedded"]
       end
     end
     places

@@ -36,5 +36,7 @@
   </tbody>
 </table>
 <div class="text-center mt-5">
-  <button type="button" class="btn btn-success">Add <%= @place.name %> to my shortlist</button>
+  <%= link_to shortlist_path do %>
+    <button type="button" class="btn btn-success">Add <%= @place.name %> to my shortlist</button>
+  <% end %>
 </div>
