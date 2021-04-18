@@ -10,7 +10,7 @@
     <ul class="list-group mx-auto w-50">
       <% places.each do |place| %>
       <li class="list-group-item">
-        <p class="card-title"><%= link_to place.name, "/places/#{place.id}" %></p>      
+        <p class="card-title"><%= link_to place.name, place_path(place) %></p>      
       </li>
       <% end %>
     </ul>
