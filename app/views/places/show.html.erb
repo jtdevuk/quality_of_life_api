@@ -1,2 +1,32 @@
 <h1 class="text-center m-3"><%= @place.name %></h1>
-<p class="m-5"><%= @place.summary %></p>
+<p class="m-5"><%= @place.summary.html_safe %></p>
+
+<div class="row mt-5">
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Housing</h5>
+        <p class="card-text"><%= @place.housing.truncate(2) %></p>
+        <a href="#" class="btn btn-primary">Add to my favourites</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Cost of Living</h5>
+        <p class="card-text"><%= @place.cost_of_living.truncate(2) %></p>
+        <a href="#" class="btn btn-primary">Add to my favourites</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Safety</h5>
+      <p class="card-text"><%= @place.safety.truncate(2) %></p>
+        <a href="#" class="btn btn-primary">Add to my favourites</a>
+      </div>
+    </div>
+  </div>
+</div>
