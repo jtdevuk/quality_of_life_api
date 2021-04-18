@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_17_082505) do
+ActiveRecord::Schema.define(version: 2021_04_18_155056) do
 
   create_table "places", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 2021_04_17_082505) do
     t.float "housing"
     t.float "cost_of_living"
     t.float "safety"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_places_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -34,4 +36,5 @@ ActiveRecord::Schema.define(version: 2021_04_17_082505) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "places", "users"
 end
