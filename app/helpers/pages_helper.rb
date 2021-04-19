@@ -26,4 +26,17 @@ module PagesHelper
     summary = urban_area["_embedded"]["ua:scores"]["summary"]
     { name: name, summary: summary, housing: housing, cost_of_living: cost_of_living, safety: safety }
   end
+
+  def set_sort_order(places)
+    sort_order = params[:sort]
+
+    if sort_order == "housing"
+      places.sort_by(&:housing)
+    elsif sort_order == "safety"
+      places.sort_by(&:safety)
+    elsif sort_order == "cost of living"
+      places.sort_by(&:cost_of_living)
+    end
+  end
+  
 end

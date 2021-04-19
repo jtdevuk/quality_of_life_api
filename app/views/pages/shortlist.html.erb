@@ -1,12 +1,15 @@
 <h1 class="text-center mt-3 mb-5">Your Shortlisted Places</h1>
-<% if current_user.places.any? %>
+<% places = current_user.places %>
+<% if places.any? %>
   <%= render "tabs_sort_by" %>
-  <div class="row">
-    <% current_user.places.each do |place| %>
+  
+  <% places = set_sort_order(places) if params[:sort] %>    
+
+  <div class="row">    
+    <% places.each do |place| %>
       <%= render "shortlist_card", place: place %>
     <% end %>
-  </div>
-  
+  </div>  
 <% else %>
   <div class="text-center">
     <p>You don't have any shortlisted places, you can search for your dream location on the home page!</p>  
