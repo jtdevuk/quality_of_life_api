@@ -9,8 +9,15 @@ module PagesHelper
       # return an array of place objects for the view to iterate through
       results["_embedded"]["city:search-results"].first(3).each do |result|
         city_item = result["_embedded"]["city:item"]
-        # The API response only includes relevant quality of life info when city_item["_embedded"] is present, other results are ignored
-        places << Place.create(build_place_from(city_item)) if city_item["_embedded"]
+        # The API response only includes relevant quality of life info when city_item["_embedded"] is present, other results are ignored        
+        if city_item["_embedded"]
+          # set all values and instantiate Place object from provided data
+          place = build_place_from(city_item)
+          # check that there isn't already an identical Place in the places array
+          unless places.any? {|place| place.name == place.name }
+            places << place
+          end
+        end
       end
     end
     places
@@ -24,7 +31,7 @@ module PagesHelper
     cost_of_living = categories[1]["score_out_of_10"]
     safety = categories[7]["score_out_of_10"]
     summary = urban_area["_embedded"]["ua:scores"]["summary"]
-    { name: name, summary: summary, housing: housing, cost_of_living: cost_of_living, safety: safety }
+    Place.create({ name: name, summary: summary, housing: housing, cost_of_living: cost_of_living, safety: safety })
   end
 
   def set_sort_order(places)
@@ -40,6 +47,7 @@ module PagesHelper
   end
 
   def set_bar_colour(data)
+    # sets bar colours for "shared/graph partial"
     if data < 3.33
       "red"
     elsif data > 3.33 && data <= 6.66
