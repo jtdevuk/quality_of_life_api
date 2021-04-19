@@ -38,5 +38,15 @@ module PagesHelper
       places.sort_by(&:cost_of_living)
     end
   end
+
+  def set_bar_colour(data)
+    if data < 3.33
+      "red"
+    elsif data > 3.33 && data <= 6.66
+      "orange"
+    else
+      "green"
+    end
+  end
   
 end

@@ -1,22 +1,16 @@
-<table class="charts-css bar show-labels mt-5">
+<table class="charts-css bar show-labels data-spacing-10 mt-5">
   <tbody>
     <tr>
       <th scope="row"> Housing </th>
-      <td style="--size: calc( <%= place.housing %> / 10 )"> <%= place.housing.truncate(1) %> </td>
-      <td style="--size: calc( <%= place.housing %> / 10 )"> <%= place.housing.truncate(1) %> </td>
-      <td style="--size: calc( <%= place.housing %> / 10 )"> <%= place.housing.truncate(1) %> </td>
+      <td style="--color: <%= set_bar_colour(place.housing) %>; --size: calc( <%= place.housing %> / 10 )"> <%= place.housing.truncate(1) %> </td>
     </tr>
     <tr>
       <th scope="row"> Cost of Living </th>
-      <td style="--size: calc( <%= place.cost_of_living %> / 10 )"> <%= place.cost_of_living.truncate(1) %> </td>      
-      <td style="--size: calc( <%= place.cost_of_living %> / 10 )"> <%= place.cost_of_living.truncate(1) %> </td>      
-      <td style="--size: calc( <%= place.cost_of_living %> / 10 )"> <%= place.cost_of_living.truncate(1) %> </td>      
+      <td style="--color: <%= set_bar_colour(place.cost_of_living) %>; --size: calc( <%= place.cost_of_living %> / 10 )"> <%= place.cost_of_living.truncate(1) %> </td>      
     </tr>
     <tr>
       <th scope="row"> Safety </th>
-      <td style="--size: calc( <%= place.safety %> / 10 )"> <%= place.safety.truncate(1) %> </td>
-      <td style="--size: calc( <%= place.safety %> / 10 )"> <%= place.safety.truncate(1) %> </td>
-      <td style="--size: calc( <%= place.safety %> / 10 )"> <%= place.safety.truncate(1) %> </td>
+      <td style="--color: <%= set_bar_colour(place.safety) %>; --size: calc( <%= place.safety %> / 10 )"> <%= place.safety.truncate(1) %> </td>
     </tr>
   </tbody>
 </table>
