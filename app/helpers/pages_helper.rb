@@ -14,7 +14,7 @@ module PagesHelper
           # set all values and instantiate Place object from provided data
           place = build_place_from(city_item)
           # check that there isn't already an identical Place in the places array
-          unless places.any? {|place| place.name == place.name }
+          unless places.any? {|p| p.name == place.name }
             places << place
           end
         end
@@ -31,7 +31,13 @@ module PagesHelper
     cost_of_living = categories[1]["score_out_of_10"]
     safety = categories[7]["score_out_of_10"]
     summary = urban_area["_embedded"]["ua:scores"]["summary"]
-    Place.create({ name: name, summary: summary, housing: housing, cost_of_living: cost_of_living, safety: safety })
+    # if the place already exists in the DB, return this existing place
+    if Place.any? { |p| p.name == name }
+      harry = Place.where(name: name).first      
+    else
+      # if the place doesn't exist, create a new one
+      Place.create({ name: name, summary: summary, housing: housing, cost_of_living: cost_of_living, safety: safety })
+    end
   end
 
   def set_sort_order(places)

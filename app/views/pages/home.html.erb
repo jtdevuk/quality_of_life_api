@@ -10,7 +10,7 @@
   <% if params[:location] && places.any? %>
     <ul class="list-group mx-auto w-50">      
       <% places.each do |place| %>
-        <%= link_to place_path(place) do %>
+        <%= link_to place_path(place) do %>        
           <button type="button" class="list-group-item list-group-item-action text-center"><%= place.name %></button>
         <% end %>        
       </li>
