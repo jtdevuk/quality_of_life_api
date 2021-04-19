@@ -1,0 +1,32 @@
+<h5 class="mb-3">Sort by:</h5>
+<ul class="nav nav-tabs mb-3">
+  <li class="nav-item">
+    
+    <% if params[:sort] == "housing" %>
+      <%= link_to "Housing", shortlist_path(sort: "housing"), class: "nav-link active" %>
+    <% else %>
+      <%= link_to "Housing", shortlist_path(sort: "housing"), class: "nav-link" %>
+    <% end %>    
+  </li>
+  <li class="nav-item">
+    <% if params[:sort] == "cost of living" %>
+      <%= link_to "Cost of Living", shortlist_path(sort: "cost of living"), class: "nav-link active" %>
+    <% else %>
+      <%= link_to "Cost of Living", shortlist_path(sort: "cost of living"), class: "nav-link" %>
+    <% end %>
+  </li>
+  <li class="nav-item">
+    <% if params[:sort] == "safety" %>
+      <%= link_to "Safety", shortlist_path(sort: "safety"), class: "nav-link active" %>
+    <% else %>
+      <%= link_to "Safety", shortlist_path(sort: "safety"), class: "nav-link" %>
+    <% end %>
+  </li>
+  <li class="nav-item">
+  <% if params[:sort] %>
+      <%= link_to "No Sort", shortlist_path, class: "nav-link" %>
+    <% else %>
+      <%= link_to "No Sort", shortlist_path, class: "nav-link active" %>
+    <% end %>
+  </li>
+</ul>

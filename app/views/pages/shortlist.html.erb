@@ -1,5 +1,6 @@
 <h1 class="text-center mt-3 mb-5">Your Shortlisted Places</h1>
 <% if current_user.places.any? %>
+  <%= render "tabs_sort_by" %>
   <div class="row">
     <% current_user.places.each do |place| %>
       <%= render "shortlist_card", place: place %>
