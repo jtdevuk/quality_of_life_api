@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   get "/places/:id", to: "places#show", as: "place"
   post "/places/:id", to: "places#add_to_shortlist"
   get "/shortlist", to: "pages#shortlist", as: "shortlist"
+  delete "/places/:id", to: "places#remove_from_shortlist"
 end

@@ -1,6 +1,6 @@
 class PlacesController < ApplicationController
   before_action :place_params, only: :create
-  before_action :set_place, only: [:show, :add_to_shortlist]
+  before_action :set_place, only: [:show, :add_to_shortlist, :remove_from_shortlist]
 
   def create
     @place = Place.new(place_params)
@@ -12,6 +12,11 @@ class PlacesController < ApplicationController
 
   def add_to_shortlist
     current_user.places << @place
+    redirect_to shortlist_path
+  end
+
+  def remove_from_shortlist
+    current_user.places.delete(@place)
     redirect_to shortlist_path
   end
 

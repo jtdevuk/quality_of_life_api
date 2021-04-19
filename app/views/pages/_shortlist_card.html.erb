@@ -5,6 +5,7 @@
       <%= render "shared/graph", place: place %>
       <div class="text-center m-3">
         <%= link_to "Show Full Details", place_path(place), class: "btn btn-primary" %>
+        <%= link_to "Remove From Shortlist", place_path(place), class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure?" } %>
       </div>
     </div>
   </div>
