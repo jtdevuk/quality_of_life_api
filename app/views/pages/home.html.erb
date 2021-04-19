@@ -4,6 +4,7 @@
   <%= form_tag(root_path, method: :get) do %>        
     <%= text_field_tag(:location, "", class: "mx-auto mt-5 mb-5 w-50", id: "search-bar") %>
   <% end %>
+  <%# if the user submits a search, call the api_search helper %>
   <% places = api_search(params[:location]) if params[:location]%>
 
   <% if params[:location] && places.any? %>

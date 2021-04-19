@@ -31,11 +31,11 @@ module PagesHelper
     sort_order = params[:sort]
 
     if sort_order == "housing"
-      places.sort_by(&:housing)
+      places.sort_by(&:housing).reverse
     elsif sort_order == "safety"
-      places.sort_by(&:safety)
+      places.sort_by(&:safety).reverse
     elsif sort_order == "cost of living"
-      places.sort_by(&:cost_of_living)
+      places.sort_by(&:cost_of_living).reverse
     end
   end
 
