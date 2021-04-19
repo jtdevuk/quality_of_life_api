@@ -7,6 +7,6 @@
   <% if current_user.places.include?(@place) %>
     <p>You'll find <%= @place.name %> already in your shortlist!</p>
   <% else %>
-    <%= link_to "Add #{@place.name} to my shortlist", place_path(@place), method: :post, class: "btn btn-success" %>
+    <%= link_to "Add #{@place.name} to my shortlist", place_path(@place), method: :post, class: "btn btn-secondary" %>
   <% end %>  
 </div>
