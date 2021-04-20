@@ -21,9 +21,7 @@ module PagesHelper
       end
     end
     places
-  end
-
-  
+  end  
 
   def set_sort_order(places)
     sort_order = params[:sort]

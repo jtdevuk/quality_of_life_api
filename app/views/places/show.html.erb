@@ -6,6 +6,7 @@
 <div class="text-center mt-5">  
   <% if current_user.places.include?(@place) %>
     <p>You'll find <%= @place.name %> already in your shortlist!</p>
+    <%= link_to "View my Shorlist", shortlist_path, class: "btn btn-primary mt-5" %>
   <% else %>
     <%= link_to "Add #{@place.name} to my shortlist", place_path(@place), method: :post, class: "btn btn-secondary" %>
   <% end %>  
