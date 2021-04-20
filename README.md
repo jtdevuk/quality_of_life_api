@@ -1,24 +1,32 @@
-# README
+# Dream a Little
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+___
 
-Things you may want to cover:
+#### Easy comparison of quality of life data for places around the world
 
-* Ruby version
+#### By **John Tweeddale**
 
-* System dependencies
+## Technologies Used
 
-* Configuration
+* Ruby on Rails
+* SQLite
+* Bootstrap
+* Charts.css - <https://chartscss.org>
 
-* Database creation
+## Description
 
-* Database initialization
+This web app allows users to create an account and search for locations. Search results display quality of life data for the location, and the location can be added to the user's shortlist. On the shortlist page a user can view shortlisted locations and sort them by different quality of life markers.
 
-* How to run the test suite
+## Setup/Installation Requirements
 
-* Services (job queues, cache servers, search engines, etc.)
+* Clone this repository to your local machine
 
-* Deployment instructions
+## License
 
-* ...
+[MIT](https://en.wikipedia.org/wiki/MIT_License)
+
+Copyright (c) 2021 John Tweeddale
+
+## Contact Information
+
+John Tweeddale <j.tweeddale@outlook.com>
