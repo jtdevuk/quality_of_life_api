@@ -20,6 +20,11 @@ This web app allows users to create an account and search for locations. Search 
 ## Setup/Installation Requirements
 
 * Clone this repository to your local machine
+* From your terminal:
+  * yarn install
+  * db:migrate
+  * rails s
+* Launch the app from your web browser, referring to the rails server for IP and port information
 
 ## License
 
