@@ -1,17 +1,21 @@
 <div id="homepage-map" class="mt-5">
   <h1 class="text-center mt-5">Let's dream a little...</h1>
   <h3 class="text-center mt-3">Where in the world would you like to live?</h3>
+  <%# basic form which reloads home page with query string, to be used in API call %>
   <%= form_tag(root_path, method: :get) do %>        
-    <%= text_field_tag(:location, "", class: "mx-auto mt-5 mb-5 w-50", id: "search-bar") %>
+    <%= text_field_tag(:location, "", class: "mx-auto mt-5 mb-3 w-50", id: "search-bar") %>
+    <div class="text-center">
+      <%= submit_tag :Search, class: "btn btn-info w-25 mb-5 p-0" %>    
+    </div>
   <% end %>
   <%# if the user submits a search, call the api_search helper %>
   <% places = api_search(params[:location]) if params[:location]%>
-
+  <%# check first that the user has entered a search term, and that api_search has returned any results %>
   <% if params[:location] && places.any? %>
     <ul class="list-group mx-auto w-50">      
       <% places.each do |place| %>
         <%= link_to place_path(place) do %>        
-          <button type="button" class="list-group-item list-group-item-action text-center"><%= place.name %></button>
+          <button type="button" class="list-group-item list-group-item-action text-center result-button"><%= place.name %></button>
         <% end %>        
       </li>
       <% end %>

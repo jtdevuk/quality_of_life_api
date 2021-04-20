@@ -5,27 +5,26 @@ module PagesHelper
     read_url = URI.open(url).read
     results = JSON.parse(read_url) 
    
-    unless results["_embedded"]["city:search-results"].empty?      
-      # return an array of place objects for the view to iterate through
+    unless results["_embedded"]["city:search-results"].empty?
       results["_embedded"]["city:search-results"].first(3).each do |result|
         city_item = result["_embedded"]["city:item"]
-        # The API response only includes relevant quality of life info when city_item["_embedded"] is present, other results are ignored        
+        # The API response only includes relevant quality of life data when city_item["_embedded"] is present      
         if city_item["_embedded"]
-          # set all values and instantiate Place object from provided data
+          # 'build' a new place from provided data, or return a pre-existing object which matches by name. Method in places_helper.rb
           place = build_place_from(city_item)
-          # check that there isn't already an identical Place in the places array
+          # check that there isn't already an identical Place in the places array, as the API sometimes gives duplicate results
           unless places.any? {|p| p.name == place.name }
             places << place
           end
         end
       end
     end
+    # return an array of place objects for the view to iterate through
     places
   end  
 
   def set_sort_order(places)
     sort_order = params[:sort]
-
     if sort_order == "housing"
       places.sort_by(&:housing).reverse
     elsif sort_order == "safety"

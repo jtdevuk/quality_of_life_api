@@ -1,1 +1,74 @@
 @import 'bootstrap/dist/css/bootstrap';
+
+#search-bar {
+  display: block;
+}
+
+#search-bar:focus {
+  outline: none;
+}
+
+#homepage-map {
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(world-map.jpg);
+  width: 100%;
+  height: 80vh;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  input {
+    border-radius: 15px;
+    border: none;
+    height: 30px;
+    padding-left: 15px;
+  }
+
+  .result-button {
+    height: 30px;
+    padding: 0;
+    margin: 3px;
+  }
+
+  h1 {
+    font-size: 50px;
+  }
+
+  h3 {
+    font-size: 30px;
+  }
+
+  h4 {
+    font-size: 20px;
+  }
+
+  h1, h3 {
+    text-shadow: 1px 1px orange;
+    color: white;
+  }
+
+  h4 {
+    text-shadow: 1px 1px red;
+    color: white;
+  }
+}
+
+// custom CSS for 'charts.css'
+#chart {
+  td {
+    margin-left: 10px;
+    padding-right: 5px;
+    color: white;
+  }
+  th {
+    font-size: 12px;
+  }
+}
+
+.devise-form {
+  background-image: url(form-background.jpg);
+  background-position: center center;
+  border-radius: 20px;
+  color: white;
+  font-size: 20px;
+}

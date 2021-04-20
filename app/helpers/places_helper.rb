@@ -9,7 +9,7 @@ module PlacesHelper
     summary = urban_area["_embedded"]["ua:scores"]["summary"]
     # if the place already exists in the DB, return this existing place
     if Place.any? { |p| p.name == name }
-      harry = Place.where(name: name).first      
+      Place.where(name: name).first      
     else
       # if the place doesn't exist, create a new one
       Place.create({ name: name, summary: summary, housing: housing, cost_of_living: cost_of_living, safety: safety })
