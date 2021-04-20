@@ -13,6 +13,10 @@ ___
 * Bootstrap
 * Charts.css - <https://chartscss.org>
 
+## API
+
+Quality of life data is provided by the [Teleport API](https://developers.teleport.org/api/). No API key is required.
+
 ## Description
 
 This web app allows users to create an account and search for locations. Search results display quality of life data for the location, and the location can be added to the user's shortlist. On the shortlist page a user can view shortlisted locations and sort them by different quality of life markers.
@@ -22,7 +26,7 @@ This web app allows users to create an account and search for locations. Search 
 * Clone this repository to your local machine
 * From your terminal:
   * yarn install
-  * db:migrate
+  * rails db:migrate
   * rails s
 * Launch the app from your web browser, referring to the rails server for IP and port information
 

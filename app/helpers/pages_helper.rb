@@ -1,10 +1,12 @@
 module PagesHelper
+  # retrieve API response for user provided search term and parse into hash object
   def api_search(place)
     places = []
     url = "https://api.teleport.org/api/cities/?search=#{place}&embed=city%3Asearch-results%2Fcity%3Aitem%2Fcity%3Aurban_area%2Fua%3Ascores"
     read_url = URI.open(url).read
-    results = JSON.parse(read_url) 
-   
+    results = JSON.parse(read_url)
+    
+    # check if results hash contains an array of city:search-results
     unless results["_embedded"]["city:search-results"].empty?
       results["_embedded"]["city:search-results"].first(3).each do |result|
         city_item = result["_embedded"]["city:item"]
